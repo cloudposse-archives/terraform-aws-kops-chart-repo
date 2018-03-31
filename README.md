@@ -1,6 +1,6 @@
 # terraform-aws-kops-chart-repo [![Build Status](https://travis-ci.org/cloudposse/terraform-aws-kops-chart-repo.svg?branch=master)](https://travis-ci.org/cloudposse/terraform-aws-kops-chart-repo)
 
-Terraform module to provision an S3 bucket for [Helm](https://helm.sh/) chart repository, and an IAM role and policy with permissions for k8s nodes to access the S3 bucket.
+Terraform module to provision an S3 bucket for [Helm](https://helm.sh/) chart repository, and an IAM role and policy with permissions for k8s nodes to access the bucket.
 
 The module uses [terraform-aws-kops-metadata](https://github.com/cloudposse/terraform-aws-kops-metadata) to lookup resources within a Kops cluster for easier integration with Terraform.
 
