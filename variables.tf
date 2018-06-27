@@ -35,7 +35,7 @@ variable "tags" {
 variable "permitted_nodes" {
   type        = "string"
   description = "Kops kubernetes nodes that are permitted to assume the role (e.g. 'nodes', 'masters', or 'both')"
-  value       = "both"
+  default     = "both"
 }
 
 variable "cluster_name" {
