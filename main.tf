@@ -74,6 +74,7 @@ data "aws_iam_policy_document" "role_trust" {
       type = "AWS"
 
       identifiers = [
+        "${module.kops_metadata.masters_role_arn}",
         "${module.kops_metadata.nodes_role_arn}",
       ]
     }
