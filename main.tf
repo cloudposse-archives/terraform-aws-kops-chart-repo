@@ -9,9 +9,10 @@ module "label" {
 }
 
 module "kops_metadata" {
-  source     = "git::https://github.com/cloudposse/terraform-aws-kops-metadata.git?ref=tags/0.1.1"
-  dns_zone   = "${var.cluster_name}"
-  nodes_name = "${var.nodes_name}"
+  source       = "git::https://github.com/cloudposse/terraform-aws-kops-metadata.git?ref=tags/0.1.1"
+  dns_zone     = "${var.cluster_name}"
+  nodes_name   = "${var.nodes_name}"
+  masters_name = "${var.masters_name}"
 }
 
 resource "aws_s3_bucket" "default" {
@@ -57,6 +58,14 @@ resource "aws_iam_policy" "default" {
   description = "Allow Kops nodes to get/put/delete objects from the chart repo S3 bucket"
 }
 
+locals {
+  arns = {
+    masters = ["${module.kops_metadata.masters_role_arn}"]
+    nodes   = ["${module.kops_metadata.nodes_role_arn}"]
+    both    = ["${module.kops_metadata.masters_role_arn}", "${module.kops_metadata.nodes_role_arn}"]
+  }
+}
+
 data "aws_iam_policy_document" "role_trust" {
   statement {
     actions = ["sts:AssumeRole"]
@@ -71,12 +80,8 @@ data "aws_iam_policy_document" "role_trust" {
     actions = ["sts:AssumeRole"]
 
     principals {
-      type = "AWS"
-
-      identifiers = [
-        "${module.kops_metadata.masters_role_arn}",
-        "${module.kops_metadata.nodes_role_arn}",
-      ]
+      type        = "AWS"
+      identifiers = ["${local.arns[var.permitted_nodes]}"]
     }
   }
 }
