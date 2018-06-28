@@ -32,9 +32,21 @@ variable "tags" {
   description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)"
 }
 
+variable "permitted_nodes" {
+  type        = "string"
+  description = "Kops kubernetes nodes that are permitted to assume the role (e.g. 'nodes', 'masters', or 'both')"
+  default     = "both"
+}
+
 variable "cluster_name" {
   type        = "string"
   description = "Kops cluster name (e.g. `us-east-1.cloudposse.com` or `cluster-1.cloudposse.com`)"
+}
+
+variable "masters_name" {
+  type        = "string"
+  default     = "masters"
+  description = "Kops masters subdomain name in the cluster DNS zone"
 }
 
 variable "nodes_name" {
