@@ -16,6 +16,7 @@ module "kops_metadata" {
 }
 
 resource "aws_s3_bucket" "default" {
+  count         = "${var.required }"
   bucket        = "${module.label.id}"
   acl           = "private"
   force_destroy = false
