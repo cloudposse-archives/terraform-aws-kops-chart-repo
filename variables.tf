@@ -57,6 +57,6 @@ variable "nodes_name" {
 
 variable "required" {
   type        = "string"
-  default     = "1"
+  default     = "true"
   description = "Is provisioning required in current account"
 }
