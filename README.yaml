@@ -7,6 +7,27 @@
 # Name of this project
 name: terraform-aws-kops-chart-repo
 
+# Tags of this project
+tags:
+  - aws
+  - terraform
+  - terraform-modules
+  - kops-kubernetes
+  - kops-nodes
+  - kops
+  - kubernetes
+  - iam-role
+  - s3-bucket
+  - chartmuseum
+  - helm
+  - helm-charts
+  - iam
+  - iam-policy
+
+# Categories of this project
+categories:
+  - terraform-modules/kops-kubernetes
+
 # Logo for this project
 #logo: docs/logo.png
 
