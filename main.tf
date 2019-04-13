@@ -9,10 +9,8 @@ module "label" {
 }
 
 module "kops_metadata" {
-  source       = "git::https://github.com/cloudposse/terraform-aws-kops-metadata.git?ref=tags/0.1.1"
-  dns_zone     = "${var.cluster_name}"
-  nodes_name   = "${var.nodes_name}"
-  masters_name = "${var.masters_name}"
+  source       = "git::https://github.com/cloudposse/terraform-aws-kops-data-iam.git?ref=tags/0.1.0"
+  cluster_name = "${var.cluster_name}"
 }
 
 resource "aws_s3_bucket" "default" {
