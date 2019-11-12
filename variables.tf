@@ -54,3 +54,9 @@ variable "nodes_name" {
   default     = "nodes"
   description = "Kops nodes subdomain name in the cluster DNS zone"
 }
+
+variable "required" {
+  type        = "string"
+  default     = "true"
+  description = "Is provisioning required in current account"
+}
