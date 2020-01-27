@@ -5,6 +5,7 @@
 | attributes | Additional attributes (e.g. `1`) | list | `<list>` | no |
 | cluster_name | Kops cluster name (e.g. `us-east-1.cloudposse.com` or `cluster-1.cloudposse.com`) | string | - | yes |
 | delimiter | Delimiter to be used between `namespace`, `stage`, `name` and `attributes` | string | `-` | no |
+| iam_role_max_session_duration | The maximum session duration (in seconds) for the role. Can have a value from 1 hour to 12 hours | string | `3600` | no |
 | masters_name | Kops masters subdomain name in the cluster DNS zone | string | `masters` | no |
 | name | Name (e.g. `chart-repo`) | string | `chart-repo` | no |
 | namespace | Namespace (e.g. `cp` or `cloudposse`) | string | - | yes |
